@@ -6,7 +6,6 @@
             "protocol": "https",
             "host": "api.github.com",
             "port": 443,
-            "documentation": "https://developer.github.com/v3",
             "dateFormat": "YYYY-MM-DDTHH:MM:SSZ",
             "requestFormat": "json",
             "requestMedia": "application/vnd.github.v3+json"
@@ -156,6 +155,13 @@
                 "validation": "^(pull|push|admin)$",
                 "invalidmsg": "",
                 "description": "`pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories."
+            },
+            "privacy": {
+                "type": "String",
+                "required": false,
+                "validation": "^(secret|closed)$",
+                "invalidmsg": "",
+                "description": "privacy"
             },
             "base": {
                 "type": "String",
@@ -1465,7 +1471,7 @@
                     "invalidmsg": "",
                     "description": "Array of strings"
                 },
-                "$permission": null
+                "$privacy": null
             }
         },
 
@@ -1559,7 +1565,8 @@
             "params": {
                 "$id": null,
                 "$user": null,
-                "$repo": null
+                "$repo": null,
+                "$permission": null
             }
         },
 
